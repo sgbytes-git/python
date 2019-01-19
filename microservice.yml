@@ -1,0 +1,13 @@
+omg: 1
+lifecycle:
+  startup:
+    command: ["python", "/app/app.py"]
+actions:
+  hello:
+    help: Returs hello world
+    http:
+      path: /
+      method: get
+      port: 8000
+    output:
+      type: string
