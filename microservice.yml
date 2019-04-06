@@ -1,13 +1,25 @@
 omg: 1
+info:
+  version: 1.0.0
+  title: Your microservice
+  description: Describe your microservice
+  license:
+    name: Apache 2.0
+    url: https://opensource.org/licenses/Apache-2.0
 lifecycle:
   startup:
     command: ["python", "/app/app.py"]
 actions:
-  hello:
-    help: Returs hello world
+  message:
     http:
-      path: /
-      method: get
-      port: 8000
+      path: /message
+      method: post
+      port: 8080
+    arguments:
+      name:
+        type: string
+        required: true
+        in: requestBody
     output:
-      type: string
+      type: any
+      contentType: application/json
