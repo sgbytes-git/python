@@ -13,6 +13,11 @@ def message():
     return jsonify({'message': f'Hello {name}'})
 
 
+@app.route('/health', methods=['GET'])
+def health():
+    return 'OK'
+
+
 # Return errors as JSON objects
 def app_error(e):
     return jsonify({'message': str(e)}), 400
